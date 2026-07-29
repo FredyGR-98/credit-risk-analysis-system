@@ -1,10 +1,29 @@
-﻿# Sistema de análisis de riesgo crediticio
+﻿# 🏦 Sistema de análisis de riesgo crediticio
 
-## Descripción general
+> Caso práctico orientado a la evaluación de solicitudes de crédito mediante organización de datos, limpieza analítica y visualización para apoyo a la toma de decisiones.
 
-Este proyecto fue diseñado como un caso más realista sobre cómo podría organizarse, revisarse, limpiarse y monitorearse información crediticia dentro de un contexto bancario para apoyar la evaluación de solicitudes de préstamo.
+## ✨ Resumen ejecutivo
 
-El objetivo principal fue simular cómo un analista puede ayudar a la toma de decisiones identificando perfiles de mayor o menor riesgo a partir de variables como:
+Este proyecto fue construido como una simulación más realista de cómo podría gestionarse información crediticia dentro de un entorno bancario para apoyar la evaluación de préstamos.
+
+La idea central fue responder una pregunta simple pero relevante:
+
+**¿Cómo apoyar la decisión de otorgar o revisar un crédito usando información histórica del solicitante y del préstamo?**
+
+Para ello, el proyecto se estructuró como un sistema de apoyo a la decisión que combina:
+
+- 📋 organización y revisión visual en Google Sheets
+- 🐍 limpieza y trazabilidad en Python
+- 📊 visualización ejecutiva e interactiva en Tableau
+- 🧠 base analítica preparada para una futura etapa predictiva
+
+---
+
+## 🎯 Objetivo del proyecto
+
+Desarrollar un flujo de trabajo aplicado para analizar riesgo crediticio y transformar una base de datos cruda en una herramienta más útil para revisión de negocio.
+
+Este sistema busca ayudar a identificar perfiles de mayor o menor riesgo a partir de variables como:
 
 - finalidad del préstamo
 - tipo de vivienda
@@ -14,137 +33,139 @@ El objetivo principal fue simular cómo un analista puede ayudar a la toma de de
 - historial crediticio
 - antecedentes de incumplimiento
 
-Más que enfocarse únicamente en la predicción, el proyecto fue estructurado como un sistema de apoyo a la decisión que combina organización de datos, limpieza, análisis y visualización orientada al negocio.
+Más que enfocarse solo en predecir, el proyecto fue pensado para **ordenar, limpiar, interpretar y comunicar** mejor la información.
 
-## Contexto del problema
+---
 
-En un entorno bancario real, las decisiones de aprobación de crédito no dependen de una sola variable. Requieren revisar el perfil financiero del solicitante, las características del préstamo solicitado y señales asociadas a su comportamiento crediticio previo.
+## 🧩 Contexto del problema
 
-Este proyecto explora cómo la información histórica puede transformarse en un sistema estructurado de apoyo para responder preguntas como:
+En un escenario bancario real, la evaluación de solicitudes no depende de una sola variable. Un analista necesita revisar el perfil del solicitante, las condiciones del préstamo y señales asociadas a su comportamiento crediticio previo.
 
-- ¿Qué perfiles de solicitantes parecen más confiables?
-- ¿Qué factores se asocian con mayor riesgo de incumplimiento?
+A partir de esa lógica, este proyecto busca apoyar preguntas como:
+
+- ¿Qué perfiles parecen más confiables?
+- ¿Qué factores se relacionan con mayor riesgo de incumplimiento?
 - ¿Qué casos requieren una revisión más cuidadosa?
-- ¿Cómo pueden los patrones históricos apoyar un proceso de evaluación más ordenado?
+- ¿Cómo ordenar mejor la evaluación de solicitudes usando información histórica?
 
-## Objetivo del proyecto
+---
 
-El objetivo de este trabajo fue construir un flujo aplicado de análisis de riesgo crediticio capaz de:
+## 🗂️ Flujo general del proyecto
 
-- organizar mejor la información disponible
-- detectar problemas en la base original
-- limpiar los datos sin alterar la fuente original
-- comparar la base antes y después de la limpieza
-- entregar un dashboard interactivo para revisión de negocio
-- preparar una base más confiable para una futura etapa predictiva
+| Etapa | Herramienta principal | Propósito |
+|---|---|---|
+| Revisión inicial | Google Sheets | Ordenar, filtrar y detectar problemas visualmente |
+| Limpieza de datos | Python | Aplicar reglas reproducibles sin alterar la base original |
+| Comparación antes/después | Python | Validar cómo cambió la base tras la limpieza |
+| Visualización final | Tableau | Facilitar la revisión ejecutiva e interactiva |
+| Siguiente etapa | Modelamiento | Preparar una futura red neuronal predictiva |
 
-## Fuente de datos
+---
 
-El proyecto utiliza una base pública de riesgo crediticio obtenida originalmente desde Kaggle y reutilizada como caso práctico de portafolio para fines de análisis y experimentación.
+## 🧾 Fuente de datos
 
-Fue seleccionada porque contiene suficientes variables demográficas, financieras y crediticias para simular un flujo de evaluación de crédito relativamente realista, permitiendo desarrollar análisis descriptivo, revisión de calidad de datos y una futura etapa de modelamiento.
+El proyecto utiliza una base pública de riesgo crediticio obtenida originalmente desde Kaggle y reutilizada como caso práctico de portafolio.
 
-Entre las variables principales se encuentran:
+Se eligió porque contiene suficientes variables demográficas, financieras y crediticias para simular un flujo de evaluación razonablemente realista.
 
-- edad del solicitante
-- ingreso anual
-- tipo de vivienda
-- antigüedad laboral
-- finalidad del préstamo
-- calificación crediticia del préstamo
-- monto solicitado
-- tasa de interés
-- estado histórico del préstamo
-- proporción del préstamo respecto al ingreso
-- antecedentes de incumplimiento
-- antigüedad del historial crediticio
+### Variables utilizadas
 
-## ¿Por qué se utilizó primero Google Sheets?
+| Nombre original | Traducción / interpretación | ¿Qué aporta al análisis? |
+|---|---|---|
+| `person_age` | Edad del solicitante | Ayuda a contextualizar el perfil del cliente |
+| `person_income` | Ingreso anual | Permite evaluar capacidad económica |
+| `person_home_ownership` | Tipo de vivienda | Entrega contexto patrimonial y estabilidad |
+| `person_emp_length` | Antigüedad laboral | Aporta señales sobre estabilidad laboral |
+| `loan_intent` | Finalidad del préstamo | Permite segmentar el riesgo según propósito |
+| `loan_grade` | Calificación del préstamo | Resume una evaluación crediticia previa |
+| `loan_amnt` | Monto solicitado | Permite medir exposición financiera |
+| `loan_int_rate` | Tasa de interés | Ayuda a contextualizar costo y riesgo del crédito |
+| `loan_status` | Estado histórico del préstamo | Variable clave para analizar cumplimiento/incumplimiento |
+| `loan_percent_income` | Proporción préstamo / ingreso | Mide carga financiera relativa |
+| `cb_person_default_on_file` | Antecedentes de incumplimiento | Señal directa de riesgo histórico |
+| `cb_person_cred_hist_length` | Antigüedad del historial crediticio | Entrega contexto sobre experiencia financiera |
 
-La primera etapa del proyecto se desarrolló en Google Sheets.
+---
 
-Esta decisión se tomó intencionalmente para:
+## 📋 ¿Por qué se utilizó primero Google Sheets?
 
-- organizar mejor la base de datos
-- inspeccionar la información con mayor control visual
-- filtrar registros de manera dinámica
-- revisar estadísticos descriptivos de forma más clara
-- identificar patrones, datos faltantes y valores atípicos con mayor cuidado
-- definir reglas de limpieza antes de pasar a Python
+La primera etapa del proyecto se trabajó en Google Sheets para tener una revisión más visual, ordenada y controlada de la base.
 
-Además, se construyó una hoja de apoyo con identificadores específicos para revisar observaciones problemáticas de forma más ordenada y detectar con mayor claridad dónde estaban los principales errores o anomalías de la base.
+Esto permitió:
 
-Esta etapa fue especialmente útil para entender la calidad de los datos antes de automatizar la limpieza.
+- filtrar registros dinámicamente
+- revisar estadísticos descriptivos con mayor claridad
+- detectar datos faltantes y valores atípicos
+- construir reglas iniciales de limpieza antes de pasar a Python
+- identificar observaciones problemáticas con una hoja auxiliar y un ID personalizado
 
-## Estrategia de limpieza
+En otras palabras, Google Sheets funcionó como una **capa previa de inspección y criterio de negocio**.
 
-Una vez terminada la revisión inicial, la limpieza se realizó en Python.
+---
 
-Esta decisión fue importante por dos motivos:
+## 🧼 Estrategia de limpieza
 
-1. permitir que el proceso de limpieza fuera reproducible y transparente  
-2. evitar modificar o perder la base de datos original
+Después de la revisión inicial, la limpieza se realizó en Python.
 
-En lugar de sobrescribir la fuente original, se generó una tabla auxiliar limpia. Esto permitió:
+Esto se hizo por dos razones clave:
+
+1. mantener el proceso de limpieza de forma **reproducible y transparente**
+2. evitar alterar o perder la **base de datos original**
+
+En lugar de sobrescribir la fuente inicial, se creó una tabla auxiliar limpia. Esto permitió:
 
 - conservar la base cruda
-- documentar con claridad la lógica de limpieza
-- comparar la base antes y después del tratamiento
-- utilizar datos limpios tanto en Python como en Google Sheets sin eliminar registros de la fuente original
+- documentar las decisiones tomadas
+- comparar el antes y el después
+- reutilizar datos limpios en Python, Tableau y Google Sheets
 
-La limpieza se centró en aspectos como:
+La limpieza se centró en:
 
 - valores poco realistas
 - datos faltantes
 - outliers sospechosos
-- campos que requerían estandarización para análisis posteriores
+- campos que requerían estandarización
 
-## Flujo de trabajo analítico
+---
 
-El flujo seguido en este proyecto puede resumirse así:
+## 📈 ¿Qué entrega el dashboard?
 
-1. Revisión de la base original en Google Sheets  
-2. Exploración de estadísticos descriptivos y revisión visual de valores problemáticos  
-3. Definición de criterios de limpieza en función de la interpretación de negocio  
-4. Aplicación de reglas de limpieza en Python, conservando la fuente original  
-5. Comparación de la base antes y después de la limpieza  
-6. Exportación de una versión limpia para análisis y visualización  
-7. Construcción de un dashboard interactivo para revisión gerencial
+Luego de la limpieza, los datos fueron integrados en un dashboard para apoyar la revisión ejecutiva.
 
-## Propósito del dashboard
+Este tablero permite explorar de forma dinámica aspectos como:
 
-Después de la etapa de limpieza, la información fue visualizada en un dashboard diseñado para apoyar la revisión de negocio.
-
-El dashboard permite a un supervisor o tomador de decisiones filtrar e inspeccionar los casos de forma más dinámica, incluyendo aspectos como:
-
-- clientes que ya cumplieron correctamente con sus pagos
+- clientes que ya cumplieron correctamente sus pagos
 - solicitantes con historial negativo
-- patrones de riesgo según la finalidad del préstamo
-- comportamiento del riesgo según el tipo de vivienda
+- patrones de riesgo según finalidad del préstamo
+- comportamiento del riesgo según tipo de vivienda
 - carga del préstamo respecto al ingreso
 - segmentos que podrían requerir mayor atención
 
-El objetivo del dashboard no es reemplazar el criterio del analista, sino hacer el proceso de revisión más estructurado, rápido y fácil de interpretar.
+El objetivo no es reemplazar al analista, sino **hacer la revisión más clara, rápida y estructurada**.
 
-## Recursos visuales
+---
 
-### Flujo de trabajo en Google Sheets
+## 🎥 Recursos visuales
+
+### Google Sheets · flujo de trabajo
+
+[![Ver video del flujo en Google Sheets](https://img.youtube.com/vi/0oH_PFn1qwk/hqdefault.jpg)](https://youtu.be/0oH_PFn1qwk)
 
 Video corto mostrando cómo se utilizó la hoja de cálculo para ordenar, filtrar y revisar la información antes de la limpieza en Python.
 
-[Ver video del flujo en Google Sheets](https://youtu.be/0oH_PFn1qwk)
+### Tableau · recorrido del dashboard
 
-### Recorrido del dashboard en Tableau
+[![Ver video del dashboard en Tableau](https://img.youtube.com/vi/8y5rvR5nX7c/hqdefault.jpg)](https://youtu.be/8y5rvR5nX7c)
 
 Video corto mostrando cómo se puede explorar la información ya limpia desde el dashboard interactivo.
 
-[Ver video del dashboard en Tableau](https://youtu.be/8y5rvR5nX7c)
+### Tableau Public · versión interactiva
 
-### Versión interactiva del dashboard
+🔗 [Ver dashboard en Tableau Public](https://public.tableau.com/views/Analisis_Riesgo_Crediticio/RiesgoCrediticio?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-[Ver dashboard en Tableau Public](https://public.tableau.com/views/Analisis_Riesgo_Crediticio/RiesgoCrediticio?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+---
 
-## Herramientas utilizadas
+## 🛠️ Herramientas utilizadas
 
 - Google Sheets
 - Python
@@ -155,7 +176,9 @@ Video corto mostrando cómo se puede explorar la información ya limpia desde el
 - Tableau Public
 - SQLite
 
-## Entregables del proyecto
+---
+
+## 📦 Entregables del proyecto
 
 Actualmente, este proyecto incluye:
 
@@ -166,16 +189,17 @@ Actualmente, este proyecto incluye:
 - capa de apoyo en Google Sheets
 - dashboard interactivo en Tableau
 
-## Recursos interactivos
+---
 
-- Hoja de apoyo en Google Sheets:  
-  [Ver Google Sheets](https://docs.google.com/spreadsheets/d/1c2M-y9EaVsJferSnKHW8X4KZPHc7syRw1yLrfvo3NxQ/edit?gid=311571590#gid=311571590)
+## 🔗 Recursos interactivos
 
-- Dashboard interactivo en Tableau:  
-  [Ver Tableau Dashboard](https://public.tableau.com/views/Analisis_Riesgo_Crediticio/RiesgoCrediticio?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+- 📄 [Hoja de apoyo en Google Sheets](https://docs.google.com/spreadsheets/d/1c2M-y9EaVsJferSnKHW8X4KZPHc7syRw1yLrfvo3NxQ/edit?gid=311571590#gid=311571590)
+- 📊 [Dashboard interactivo en Tableau](https://public.tableau.com/views/Analisis_Riesgo_Crediticio/RiesgoCrediticio?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-## Próximo paso
+---
+
+## 🚀 Próximo paso
 
 La siguiente etapa del proyecto consiste en utilizar la base limpia como soporte para futuros ejercicios de modelamiento predictivo, incluyendo la posible construcción de una red neuronal orientada a la estimación del riesgo crediticio.
 
-La intención es mantener primero una base sólida de interpretación de negocio y análisis de datos, para luego extender el proyecto hacia machine learning como una capa complementaria.
+La idea es mantener primero una base sólida de interpretación de negocio y análisis de datos, para luego extender el proyecto hacia machine learning como una capa complementaria.
