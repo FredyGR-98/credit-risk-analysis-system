@@ -72,13 +72,13 @@ Finalmente, la información depurada fue llevada a Tableau para construir un das
 
 ### Flujo de trabajo en Google Sheets
 
-[![Ver video del flujo en Google Sheets](https://img.youtube.com/vi/0oH_PFn1qwk/hqdefault.jpg)](https://youtu.be/0oH_PFn1qwk)
+[![Ver video del dashboard en Tableau](https://img.youtube.com/vi/8y5rvR5nX7c/hqdefault.jpg)](https://youtu.be/8y5rvR5nX7c)
 
 Video corto mostrando cómo se utilizó la hoja de cálculo para ordenar, filtrar y revisar la información antes de la limpieza en Python.
 
 ### Recorrido del dashboard en Tableau
 
-[![Ver video del dashboard en Tableau](https://img.youtube.com/vi/8y5rvR5nX7c/hqdefault.jpg)](https://youtu.be/8y5rvR5nX7c)
+[![Ver video del flujo en Google Sheets](https://img.youtube.com/vi/0oH_PFn1qwk/hqdefault.jpg)](https://youtu.be/0oH_PFn1qwk)
 
 Video corto mostrando cómo se puede explorar la información ya limpia desde el dashboard interactivo.
 
